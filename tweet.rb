@@ -46,7 +46,6 @@ class Tweet
             when *evening_time; @client.update("@#{tweet.user.screen_name}\nおそよう、#{tweet.user.name}さん。もう夕方だよ...((", options = {:in_reply_to_status_id => tweet.id})
             when *night_time; @client.update("@#{tweet.user.screen_name}\nおそよう、#{tweet.user.name}さん。\nもう外真っ暗...昨日は何してたの?((", options = {:in_reply_to_status_id => tweet.id})
             end
-            break
           end
         end
 
@@ -59,14 +58,12 @@ class Tweet
               end
             end
             @client.update("@#{tweet.user.screen_name}\n#{tweet.user.name}さんおつかれさま、#{tweets.sample}", options = {:in_reply_to_status_id => tweet.id})
-            break
           end
         end
 
         def reply_oyasumi
           if tweet.text.include?("おやすみ") && (tweet.user.screen_name != USERNAME)
             @client.update("@#{tweet.user.screen_name}\nおやすみなさい。", options = {:in_reply_to_status_id => tweet.id})
-            break
           end
         end
 
@@ -80,7 +77,6 @@ class Tweet
             end
             @client.update("@#{tweet.user.screen_name}\n#{tweets.sample}", options = {:in_reply_to_status_id => tweet.id})
             @client.favorite(tweet.id)
-            break
           end
         end
 
@@ -93,7 +89,6 @@ class Tweet
               end
             end
             @client.update("@#{tweet.user.screen_name}\n#{tweets.sample}", options = {:in_reply_to_status_id => tweet.id})
-            break
           end
         end
 
