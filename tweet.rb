@@ -21,8 +21,18 @@ class Tweet
     end
   end
 
-
   def stream_reply
+
+    def start_tweet
+      tweets_auto = []
+      File.open('tweet.txt') do |tweet_txt|
+        tweet_txt.each_line do |tweet_will_be_pushed|
+          tweets_auto.push("#{tweet_will_be_pushed}")
+        end
+      end
+      @client.update("#{tweets_auto.sample}")
+    end
+
 
     morning_time = (4..10)
     day_time = (11..15)
@@ -93,8 +103,8 @@ class Tweet
         end
 
       end #if
-    end #str
-  end
+    end #stream
+  end#def
 
 end
 
