@@ -21,19 +21,22 @@ class Tweet
     end
   end
 
+  def random_tweet
+    tweets = []
+    File.open('Tweets/tweet.txt') do |tweet_txt|
+      tweet_txt.each_line do |tweet_will_be_pushed|
+        tweets.push("#{tweet_will_be_pushed}")
+      end
+    end
+    @client.update("#{tweets.sample}")
+  end
+
   def stream_reply
+
     morning_time = (4..10)
     day_time = (11..15)
     evening_time = (16..18)
     night_time = [*0..3],[*19..24]
-
-    tweets_auto = []
-    File.open('tweet.txt') do |tweet_txt|
-      tweet_txt.each_line do |tweet_will_be_pushed|
-        tweets_auto.push("#{tweet_will_be_pushed}")
-      end
-    end
-    @client.update("#{tweets_auto.sample}")
 
     @stream_client.user do |tweet|
       if tweet.is_a?(Twitter::Tweet)
