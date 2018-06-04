@@ -10,12 +10,6 @@ end
 
 def reply_tsukareta(tweet)
   if tweet.text.include?("つかれた") && (tweet.user.screen_name != USERNAME)
-    tweets = []
-    File.open('Tweets/tukareta.txt') do |tweet_txt|
-      tweet_txt.each_line do |tweet_line|
-        tweets.push("#{tweet_line}")
-      end
-    end
     @client.update("@#{tweet.user.screen_name}\n#{tweet.user.name}さんおつかれさま、#{tweets.sample}", options = {:in_reply_to_status_id => tweet.id})
   end
 end
@@ -50,4 +44,5 @@ def reply_ganbaru(tweet)
     @client.update("@#{tweet.user.screen_name}\n#{tweets.sample}", options = {:in_reply_to_status_id => tweet.id})
   end
 end
+
 end
