@@ -48,6 +48,7 @@ class Tweet
         @client.favorite(tweet.id) if rand(1..10) > 9
       end #if
     end #stream
+    
   end#def
 
 end
