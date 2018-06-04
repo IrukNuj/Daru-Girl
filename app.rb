@@ -3,8 +3,9 @@ require_relative 'tweet.rb'
 
 # URL'/'でアクセス
 get '/' do
-  Tweet.new.random_tweet
-  "#{ENV['ACCESS_TOKEN']}"
+  Tweet.newrandom_tweet
+  a = ENV['ACCESS_TOKEN']
+  "#{a}"
   "Tweet successd!"
 end
 
