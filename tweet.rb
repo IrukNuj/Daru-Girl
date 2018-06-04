@@ -24,7 +24,7 @@ class Tweet
 
   def random_tweet
     tweets = []
-    File.open('Tweets/ganbaru.txt') do |tweet_txt|
+    File.open('Tweets/tweet.txt') do |tweet_txt|
       tweet_txt.each_line do |tweet_line|
         tweets.push("#{tweet_line}")
       end
@@ -45,7 +45,7 @@ class Tweet
         reply_oyasumi(tweet)
         reply_daruko(tweet)
         reply_ganbaru(tweet)
-        @client.favorite(tweet.id) if rand(1..10)>9 
+        @client.favorite(tweet.id) if rand(1..10) > 9
       end #if
     end #stream
   end#def
