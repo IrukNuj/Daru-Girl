@@ -8,17 +8,17 @@ class Tweet
 
   def initialize
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = "2nSXrucAvvI9XKxjQcZUn0uFX"
-      config.consumer_secret     = "1hudid8U6Z9Z2Gj6EeHV28G04ni0zVeMAPcuWUfFRGUOVX1WvI"
-      config.access_token        = "997858584699420672-iM8qSdOtoLXaXWWho058urWuP2Kci47"
-      config.access_token_secret = "RTNXv3KAdDSHX1YO9sLiOdKijvKOEVGKTfFdFd8Gv6wBr"
+      config.consumer_key        = ENV['MY_CONSUMER_KEY']
+      config.consumer_secret     = ENV['MY_CONSUMER_SECRET']
+      config.access_token        = ENV['MY_ACCESS_TOKEN']
+      config.access_token_secret = ENV['MY_ACCESS_TOKEN_SECRET']
     end
 
     @stream_client = Twitter::Streaming::Client.new do |config|
-      config.consumer_key        = "2nSXrucAvvI9XKxjQcZUn0uFX"
-      config.consumer_secret     = "1hudid8U6Z9Z2Gj6EeHV28G04ni0zVeMAPcuWUfFRGUOVX1WvI"
-      config.access_token        = "997858584699420672-iM8qSdOtoLXaXWWho058urWuP2Kci47"
-      config.access_token_secret = "RTNXv3KAdDSHX1YO9sLiOdKijvKOEVGKTfFdFd8Gv6wBr"
+      config.consumer_key        = ENV['MY_CONSUMER_KEY']
+      config.consumer_secret     = ENV['MY_CONSUMER_SECRET']
+      config.access_token        = ENV['MY_ACCESS_TOKEN']
+      config.access_token_secret = ENV['MY_ACCESS_TOKEN_SECRET']
     end
   end
 
@@ -48,7 +48,7 @@ class Tweet
         @client.favorite(tweet.id) if rand(1..10) > 9
       end #if
     end #stream
-    
+
   end#def
 
 end
