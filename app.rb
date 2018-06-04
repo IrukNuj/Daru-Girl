@@ -3,8 +3,8 @@ require_relative 'tweet.rb'
 
 # URL'/'でアクセス
 get '/' do
-  Tweet.newrandom_tweet
-  "Tweet successd!"
+  Tweet.new.random_tweet
+  "Tweet successed!"
 end
 
 get '/auto_reply' do
