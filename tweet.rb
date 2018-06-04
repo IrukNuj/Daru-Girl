@@ -1,6 +1,6 @@
 require 'twitter'
 require 'date'
-require_relative 'reply.rb'
+require_relative './reply'
 
 USERNAME = "Daru_Girl"
 

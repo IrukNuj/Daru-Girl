@@ -20,13 +20,13 @@ def reply_tsukareta(tweet)
   end
 end
 
-def reply_oyasumi
+def reply_oyasumi(tweet)
   if tweet.text.include?("おやすみ") && (tweet.user.screen_name != USERNAME)
     @client.update("@#{tweet.user.screen_name}\nおやすみなさい。", options = {:in_reply_to_status_id => tweet.id})
   end
 end
 
-def reply_daruko
+def reply_daruko(tweet)
   if tweet.text.include?("だる子") && (tweet.user.screen_name != USERNAME)
     tweets = []
     File.open('Tweets/daruko.txt') do |tweet_txt|
@@ -39,7 +39,7 @@ def reply_daruko
   end
 end
 
-def reply_ganbaru
+def reply_ganbaru(tweet)
   if tweet.text.include?("がんばる") && (tweet.user.screen_name != USERNAME)
     tweets = []
     File.open('Tweets/ganbaru.txt') do |tweet_txt|
