@@ -1,5 +1,6 @@
 require 'twitter'
 require 'date'
+require 'dotenv'
 require_relative './reply'
 
 USERNAME = "Daru_Girl"
