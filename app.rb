@@ -6,3 +6,7 @@ get '/' do
   Tweet.new.random_tweet
   "Tweet successd!"
 end
+
+get '/auto_reply' do
+  Tweet.new.stream_reply
+end
