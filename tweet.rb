@@ -25,7 +25,7 @@ class Tweet
   end
 
   def random_tweet
-    if (rand(1..100)>3)  && DateTime.now.hour == (15..21)
+    if (rand(1..100) < 3)  && DateTime.now.hour == (15..21)
       tweets = []
       File.open('Tweets/tweet.txt') do |tweet_txt|
         tweet_txt.each_line do |tweet_line|
@@ -37,10 +37,10 @@ class Tweet
   end
 
   def stream_reply
-    morning_time = (4..10)
-    day_time = (11..15)
-    evening_time = (16..18)
-    night_time = [*0..3],[*19..24]
+    @morning_time = (4..10)
+    @day_time = (11..15)
+    @evening_time = (16..18)
+    @night_time = [*0..3],[*19..24]
 
     @stream_client.user do |tweet|
       if tweet.is_a?(Twitter::Tweet)
@@ -49,7 +49,7 @@ class Tweet
         reply_oyasumi(tweet)
         reply_daruko(tweet)
         reply_ganbaru(tweet)
-        @client.favorite(tweet.id) if rand(1..100) > 25
+        @client.favorite(tweet.id) if rand(1..100) < 20
       end #if
     end #stream
 
