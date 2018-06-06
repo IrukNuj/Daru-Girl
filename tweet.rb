@@ -9,10 +9,11 @@ class Tweet
 
   def initialize
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV['CONSUMER_KEY']
-      config.consumer_secret     = ENV['CONSUMER_SECRET']
-      config.access_token        = ENV['ACCESS_TOKEN']
-      config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
+      config.consumer_key        = "2nSXrucAvvI9XKxjQcZUn0uFX"
+      config.consumer_secret     = "1hudid8U6Z9Z2Gj6EeHV28G04ni0zVeMAPcuWUfFRGUOVX1WvI"
+      config.access_token        = "997858584699420672-iM8qSdOtoLXaXWWho058urWuP2Kci47"
+      config.access_token_secret = "RTNXv3KAdDSHX1YO9sLiOdKijvKOEVGKTfFdFd8Gv6wBr"
+
     end
 
     @stream_client = Twitter::Streaming::Client.new do |config|
@@ -24,13 +25,15 @@ class Tweet
   end
 
   def random_tweet
-    tweets = []
-    File.open('Tweets/tweet.txt') do |tweet_txt|
-      tweet_txt.each_line do |tweet_line|
-        tweets.push("#{tweet_line}")
+    if (rand(1..100)>3)  && DateTime.now.hour == (15..21)
+      tweets = []
+      File.open('Tweets/tweet.txt') do |tweet_txt|
+        tweet_txt.each_line do |tweet_line|
+          tweets.push("#{tweet_line}")
+        end
       end
+      @client.update("#{tweets.sample}")
     end
-    @client.update("#{tweets.sample}")
   end
 
   def stream_reply
@@ -46,7 +49,7 @@ class Tweet
         reply_oyasumi(tweet)
         reply_daruko(tweet)
         reply_ganbaru(tweet)
-        @client.favorite(tweet.id) if rand(1..10) > 9
+        @client.favorite(tweet.id) if rand(1..100) > 25
       end #if
     end #stream
 
