@@ -44,15 +44,17 @@ class Tweet
     @stream_client.user do |tweet|
       if tweet.is_a?(Twitter::Tweet)
         if tweet.user.screen_name == status.user.screen_name
+          if rand(1..100) < 10 && (tweet.user.screen_name != USERNAME)
+            @client.favorite(tweet.id)
           reply_ohayo(tweet)
           reply_tsukareta(tweet)
           reply_oyasumi(tweet)
           reply_daruko(tweet)
           reply_ganbaru(tweet)
-          if rand(1..100) < 10 && (tweet.user.screen_name != USERNAME)
-            @client.favorite(tweet.id)
+        end
       end #if
     end #stream
   end#def
+
 end
 end
