@@ -43,7 +43,7 @@ class Tweet
 
     @stream_client.user do |tweet|
       if tweet.is_a?(Twitter::Tweet)
-        if tweet.user.screen_name == status.user.screen_name
+        if !tweet.retweeted_status?
           if rand(1..100) < 10 && (tweet.user.screen_name != USERNAME)
             @client.favorite(tweet.id)
           reply_ohayo(tweet)
