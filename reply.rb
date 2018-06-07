@@ -3,6 +3,11 @@
 @evening_time = (16..18)
 @night_time = [*0..3],[*19..24]
 
+def random_favorite(tweet)
+  if rand(1..100) < 10 && (tweet.user.screen_name != USERNAME)
+    @client.favorite(tweet.id)
+end
+
 def reply_ohayo(tweet)
   if tweet.text.include?("おはよ") && (tweet.user.screen_name != USERNAME)
     case DateTime.now.hour
