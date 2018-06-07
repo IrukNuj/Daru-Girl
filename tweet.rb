@@ -36,11 +36,6 @@ class Tweet
   end
 
   def stream_reply
-    @morning_time = (4..10)
-    @day_time = (11..15)
-    @evening_time = (16..18)
-    @night_time = [*0..3],[*19..24]
-
     @stream_client.user do |tweet|
       if tweet.is_a?(Twitter::Tweet)
         if !status.retweeted_status?
@@ -54,6 +49,5 @@ class Tweet
       end #if
     end #stream
   end#def
-
-end
+  
 end
