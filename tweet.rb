@@ -24,7 +24,7 @@ class Tweet
   end
 
   def random_tweet
-    if (rand(1..100) < 6)  && DateTime.now.hour == (15..21)
+    if (rand(1..100) < 6)
       tweets = []
       File.open('Tweets/tweet.txt') do |tweet_txt|
         tweet_txt.each_line do |tweet_line|
