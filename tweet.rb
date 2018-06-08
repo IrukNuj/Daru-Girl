@@ -38,7 +38,7 @@ class Tweet
   def stream_reply
     @stream_client.user do |tweet|
       if tweet.is_a?(Twitter::Tweet)
-        if !status.retweeted_status?
+        if !tweet.retweeted_status?
           random_favorite(tweet)
           reply_ohayo(tweet)
           reply_tsukareta(tweet)
