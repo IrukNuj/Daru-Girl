@@ -11,6 +11,10 @@ end
 
 def reply_ohayo(tweet)
   if tweet.text.include?("おはよ") && (tweet.user.screen_name != USERNAME)
+    @morning_time = (4..10)
+    @day_time = (11..15)
+    @evening_time = (16..18)
+    @night_time = [*0..3],[*19..24]
     case DateTime.now.hour
       when *@morning_time; @client.update("@#{tweet.user.screen_name}\nおはよう、#{tweet.user.name}さん。今日も一日がんばってこー！", options = {:in_reply_to_status_id => tweet.id})
       when *@day_time; @client.update("@#{tweet.user.screen_name}\nおはよう、#{tweet.user.name}さん。\nねぼすけさんだね、もうお昼だよ...?w", options = {:in_reply_to_status_id => tweet.id})
