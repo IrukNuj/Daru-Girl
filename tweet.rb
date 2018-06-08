@@ -49,5 +49,5 @@ class Tweet
       end #if
     end #stream
   end#def
-  
+
 end
