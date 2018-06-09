@@ -27,8 +27,7 @@ class Tweet
     if (rand(1..100) < 96)
       tweets = []
       File.open('Tweets/tweet.txt') do |tweet_txt|
-        tweet_txt.each
-        _line do |tweet_line|
+        tweet_txt.each_line do |tweet_line|
           tweets.push("#{tweet_line}")
         end
       end
