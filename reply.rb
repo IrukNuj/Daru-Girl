@@ -25,7 +25,8 @@ def reply_ohayo(tweet)
 end
 
 def reply_tsukareta(tweet)
-  if tweet.text.include?("つかれた") && (tweet.user.screen_name != USERNAME)
+  if tweet.text.include?("つかれた") &&
+      (tweet.user.screen_name != USERNAME)
     @client.update("@#{tweet.user.screen_name}\n#{tweet.user.name}さんおつかれさま、#{tweets.sample}", options = {:in_reply_to_status_id => tweet.id})
   end
 end
