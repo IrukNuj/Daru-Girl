@@ -45,6 +45,7 @@ class Tweet
           reply_oyasumi(tweet)
           reply_daruko(tweet)
           reply_ganbaru(tweet)
+          time_test(tweet)
         end
       end #if
     end #stream

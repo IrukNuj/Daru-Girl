@@ -65,3 +65,9 @@ def reply_ganbaru(tweet)
     @client.update("@#{tweet.user.screen_name}\n#{tweets.sample}", options = {:in_reply_to_status_id => tweet.id})
   end
 end
+
+def time_test(tweet)
+  if tweet.text.include?("Daruko.timetest") && (tweet.user.screen_name != USERNAME)
+    client.update(DateTime.now)
+  end
+end
