@@ -1,7 +1,7 @@
-@morning_time = (4..10)
-@day_time = (11..15)
-@evening_time = (16..18)
-@night_time = [*0..3], [*19..24]
+@morning_time = [*0..1],[*19..23]
+@day_time = (2..6)
+@evening_time = (7..9)
+@night_time = (10..18)
 
 def random_favorite(tweet)
   if rand(1..100) < 10 && (tweet.user.screen_name != USERNAME)

@@ -24,7 +24,7 @@ class Tweet
   end
 
   def random_tweet
-    if (rand(1..100) < 4)
+    if (rand(1..100) < 100)
       tweets = []
       File.open('Tweets/tweet.txt') do |tweet_txt|
         tweet_txt.each_line do |tweet_line|
