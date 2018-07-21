@@ -24,7 +24,7 @@ class Tweet
   end
 
   def random_tweet
-    if (rand(1..100) < 4)
+    if (rand(1..100) < 3)
       tweets = []
       File.open('Tweets/tweet.txt') do |tweet_txt|
         tweet_txt.each_line do |tweet_line|
@@ -33,6 +33,16 @@ class Tweet
       end
       @client.update("#{tweets.sample}")
     end
+  end
+
+  def update_tweet
+    tweets = []
+    File.open('Tweets/tweet.txt') do |tweet_txt|
+      tweet_txt.each_line do |tweet_line|
+        tweets.push("#{tweet_line}")
+      end
+    end
+    @client.update("#{tweets.sample}")
   end
 
   def stream_reply

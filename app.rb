@@ -10,3 +10,7 @@ end
 get '/auto_reply' do
   Tweet.new.stream_reply
 end
+
+get '/update_tweet' do
+  Tweet.new.update_tweet
+end
